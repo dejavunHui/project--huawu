@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>旧视--后台管理</title>
+</head>
+<body>
+    <form method="post" action="/video/upload/" enctype="multipart/form-data">
+    <center>
+        <!--
+        <p>影片图片: <input type="file" name="img" accept="image/jpeg,image/png,image/gif,image/jpg"/></p>
+        <br/>
+        <p>影片: <input type="file" name="sr_video" accept="video/mp4,video/flv,video/3gp" /></p>
+        <br/>
+        <p>影片名称: <input type="text" name="name"/></p>
+        <br/>
+        <p>影片类型: <input type="text" name="type"/></p>
+        <br/>
+        <p>影片年份: <input type="number" name="year" value="1990"/></p>
+        <br/>
+        <p>影片简介: <input type="text" name="info"/></p>
+        <br/>
+        -->
+        {% csrf_token %}
+        <p>影片类型: {{ obj.type }}</p>
+        <p>影片名称: {{ obj.name }}</p>
+        <p>影片年份: {{ obj.year }}</p>
+        <p>影片简介: {{ obj.info }}</p>
+        <p>影片图片: {{ obj.img }}</p>
+        <p>影片: {{ obj.src_video }}</p>
+        <br/>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <input type="submit" value="上传"><tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><a href="{% url 'videos:index' %}" ><input type="button" value="返回"></a>
+    </center>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>旧视--后台管理</title>
+    <!-- Bootstrap Styles-->
+    <link href="/static/video/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FontAwesome Styles-->
+    <link href="/static/video/css/font-awesome.css" rel="stylesheet"/>
+    <!-- Morris Chart Styles-->
+    <link href="/static/video/js/morris/morris-0.4.3.min.css" rel="stylesheet"/>
+    <!-- Custom Styles-->
+    <link href="/static/video/css/custom-styles.css" rel="stylesheet"/>
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
+    <link rel="stylesheet" href="/static/video/css/style.css" type="text/css" media="all"/>
+    <!--[if IE 6]>
+		<link rel="stylesheet" href="/static/video/css/ie6.css" type="text/css" media="all" />
+	<![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href=#><i class="fa fa-comments"></i> <strong>{{ name }} </strong></a>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+
+            <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="{% url 'videos:upload' %}" aria-expanded="false">上传
+
+                    </a>
+                    <!-- /.dropdown-tasks -->
+                </li>
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">下载
+
+                    </a>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+
+                <li>
+                    <a  href="{% url 'videos:types' 1 %}"><i class="fa fa-dashboard"></i> 恐怖 </a>
+                </li>
+                <li>
+                    <a class="active-menu" href="{% url 'videos:types' 2 %}"><i class="fa fa-desktop"></i> 爱情 </a>
+                </li>
+                <li>
+                    <a href="{% url 'videos:types' 3 %}"><i class="fa fa-bar-chart-o"></i> 喜剧 </a>
+                </li>
+                <li>
+                    <a href="{% url 'videos:types' 4 %}"><i class="fa fa-qrcode"></i> 剧情 </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'videos:types' 5 %}"><i class="fa fa-table"></i> 科幻 </a>
+                </li>
+                <li>
+                    <a href="{% url 'videos:types' 6 %}"><i class="fa fa-edit"></i> 战争 </a>
+                </li>
+                <li>
+                    <a href="{% url 'videos:types' 7 %}"><i class="fa fa-edit"></i> 纪录 </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'videos:types' 8 %}"><i class="fa fa-fw fa-file"></i> 动作 </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div id="page-wrapper">
+    <nav class="navbar-left">
+        <div id="content">
+
+
+            <div class="box">
+                <div class="head">
+				</div>
+                    {% for v in videos %}
+                        <div class="movie">
+                            <div class="movie-image">
+                                <a href="{% url 'videos:info' v.id %}"><span class="play"><span class="name">{{ v.name }}</span></span><img src="{{ v.img }}" alt="movie" /></a>
+                            </div>
+                            <div class="rating">
+                                <p>{{ v.name }}</p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+				</div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<script src="/static/video/js/jquery-1.10.2.js"></script>
+<!-- Bootstrap Js -->
+<script src="/static/video/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Js -->
+<script src="/static/video/js/jquery.metisMenu.js"></script>
+<!-- Morris Chart Js -->
+<script src="/static/video/js/morris/raphael-2.1.0.min.js"></script>
+<script src="/static/video/js/morris/morris.js"></script>
+
+
+<script src="/static/video/js/easypiechart.js"></script>
+<script src="/static/video/js/easypiechart-data.js"></script>
+
+
+<!-- Custom Js -->
+<script src="/static/video/js/custom-scripts.js"></script>
+
+<script type="text/javascript" src="/static/video/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/static/video/js/jquery-func.js"></script>
+</body>
+
+</html>
